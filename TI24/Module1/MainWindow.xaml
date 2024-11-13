@@ -5,8 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Module1"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-
-    </Grid>
+        Title="MainWindow" Height="450" Width="830">
+    <DockPanel LastChildFill="True">
+        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
+            <Button Margin="10" Width="40" Content="1" Click="ButtonBase_OnClick"/>
+            <Button Margin="10" Width="40" Content="2" Click="ButtonBase_OnClickTwo"/>
+            <Button Margin="10" Width="40" Content="3" Click="ButtonBase_OnClickThree"/>
+        </StackPanel>
+        <Frame x:Name="FrameElement" NavigationUIVisibility="Hidden" Source="Module1Page.xaml">
+            
+        </Frame>
+    </DockPanel>
 </Window>

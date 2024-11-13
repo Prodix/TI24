@@ -16,6 +16,8 @@ public partial class Module
     public int Duration { get; set; }
 
     public DateOnly DateRelease { get; set; }
+    
+    public string Status { get; set; }
 
     public string InfoSource { get; set; } = null!;
 

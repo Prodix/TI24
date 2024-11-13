@@ -55,8 +55,8 @@ public partial class PostgresContext : DbContext
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder
+            .HasPostgresEnum<ModuleStatus>()
             .HasPostgresEnum("event_type", new[] { "practice", "theory" })
-            .HasPostgresEnum("module_status", new[] { "draft", "on_approval", "hired" })
             .HasPostgresEnum("progress_type", new[] { "noob", "hard_worker", "master" })
             .HasPostgresEnum("report_type", new[] { "quarterly", "department", "position" })
             .HasPostgresEnum("testing_type", new[] { "initial", "final" });

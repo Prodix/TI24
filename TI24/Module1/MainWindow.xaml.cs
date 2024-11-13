@@ -24,5 +24,20 @@ namespace Module1
         {
             InitializeComponent();
         }
+
+        private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
+        {
+            FrameElement.NavigationService.Navigate(new Module1Page());
+        }
+
+        private void ButtonBase_OnClickTwo(object sender, RoutedEventArgs e)
+        {
+            FrameElement.NavigationService.Navigate(new Module2Page());
+        }
+
+        private void ButtonBase_OnClickThree(object sender, RoutedEventArgs e)
+        {
+            FrameElement.NavigationService.Navigate(new ModuleCreationPage());
+        }
     }
 }

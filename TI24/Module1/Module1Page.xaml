@@ -1,0 +1,48 @@
+﻿<Page x:Class="Module1.Module1Page"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:local="clr-namespace:Module1"
+      mc:Ignorable="d"
+      Title="Module1Page" Height="450" Width="800">
+    <DockPanel LastChildFill="True" Margin="10">
+        <Grid DockPanel.Dock="Top"  Margin="0,0,0,10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                <ColumnDefinition Width="300"></ColumnDefinition>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Label>Поиск</Label>
+            <TextBox Grid.Column="1" Margin="5,0" Width="280"></TextBox>
+            <Button Grid.Column="2" Margin="5,0" Content="Фильтр"></Button>
+            <Border Grid.Column="3" Width="5"></Border>
+            <Button Grid.Column="4" Margin="5,0" Content="Создать модуль" Click="ButtonBase_OnClick"></Button>
+        </Grid>
+        <ListView x:Name="ModulesElement" ItemsSource="{Binding Modules}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Background="{Binding Color}">
+                        <Label Content="{Binding Info.Name}"></Label>
+                        <StackPanel Orientation="Horizontal">
+                            <Label>Ответственное лицо: </Label>
+                            <Label Content="{Binding Info.ResponsiblePersonNavigation.FirstName}"></Label>
+                            <Label Content="{Binding Info.ResponsiblePersonNavigation.LastName}"></Label>
+                            <Label Content="{Binding Info.ResponsiblePersonNavigation.MiddleName}"></Label>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="Длительность(в днях): "></Label>
+                            <Label Content="{Binding Info.Duration}"></Label>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="Дата выпуска: "></Label>
+                            <Label Content="{Binding Info.DateRelease}"></Label>
+                        </StackPanel>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </DockPanel>
+</Page>
