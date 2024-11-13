@@ -49,7 +49,8 @@ public partial class PostgresContext : DbContext
     public virtual DbSet<TestingResult> TestingResults { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-         => optionsBuilder.UseNpgsql("Host=localhost;Database=postgres;Username=postgres;Password=root");
+         => optionsBuilder.UseNpgsql("Host=localhost;Database=postgres;Username=postgres;Password=root")
+             .UseSnakeCaseNamingConvention();
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
