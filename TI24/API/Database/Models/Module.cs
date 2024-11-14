@@ -17,7 +17,7 @@ public partial class Module
 
     public DateOnly DateRelease { get; set; }
     
-    public string Status { get; set; }
+    public ModuleStatus Status { get; set; }
 
     public string InfoSource { get; set; } = null!;
 
@@ -36,4 +36,9 @@ public partial class Module
     public virtual ICollection<ProgramModule> ProgramModules { get; set; } = new List<ProgramModule>();
 
     public virtual Employee ResponsiblePersonNavigation { get; set; } = null!;
+
+    public override string ToString()
+    {
+        return $"{Id} | {Name}";
+    }
 }

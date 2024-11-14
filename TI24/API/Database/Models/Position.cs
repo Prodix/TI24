@@ -12,4 +12,6 @@ public partial class Position
     public virtual ICollection<Employee> Employees { get; set; } = new List<Employee>();
 
     public virtual ICollection<ModulePosition> ModulePositions { get; set; } = new List<ModulePosition>();
+    
+    public override string ToString() => Name;
 }

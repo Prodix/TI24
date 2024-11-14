@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using API.Database.Models;
 using Microsoft.EntityFrameworkCore;
+using Npgsql;
 
 namespace API.Database;
 
@@ -49,8 +50,13 @@ public partial class PostgresContext : DbContext
     public virtual DbSet<TestingResult> TestingResults { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-         => optionsBuilder.UseNpgsql("Host=localhost;Database=postgres;Username=postgres;Password=root")
-             .UseSnakeCaseNamingConvention();
+    {
+        var dataSourceBuilder = new NpgsqlDataSourceBuilder("Host=localhost;Database=postgres;Username=postgres;Password=root");
+        dataSourceBuilder.MapEnum<ModuleStatus>();
+        var dataSource = dataSourceBuilder.Build();
+
+        optionsBuilder.UseNpgsql(dataSource).UseSnakeCaseNamingConvention();
+    }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

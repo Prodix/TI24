@@ -5,49 +5,76 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:local="clr-namespace:Module1"
       mc:Ignorable="d"
-      Title="Module3Page" Height="450" Width="800">
+      Title="Module3Page">
     <DockPanel LastChildFill="True">
-        <Button DockPanel.Dock="Bottom" Margin="10">Создать модуль</Button>
+        <Button Click="ButtonBase_OnClick" DockPanel.Dock="Bottom" Margin="10">Создать модуль</Button>
         <StackPanel DockPanel.Dock="Left" Orientation="Vertical">
             <Label>Создание модуля</Label>
             <StackPanel Orientation="Horizontal">
                 <Label>Название модуля</Label>
-                <TextBox Width="200"></TextBox>
+                <TextBox x:Name="Name" Text="{Binding Module.Name, UpdateSourceTrigger=PropertyChanged}" Width="200"></TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <Label>Номер приказа</Label>
-                <TextBox Width="200"></TextBox>
+                <TextBox x:Name="Number" Text="{Binding Module.Code, UpdateSourceTrigger=PropertyChanged}" Width="200"></TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <Label>Длительность(в днях)</Label>
-                <TextBox Width="200"></TextBox>
+                <TextBox x:Name="Duration" Text="{Binding Module.Duration, UpdateSourceTrigger=PropertyChanged}" Width="200"></TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <Label>Дата реализации</Label>
-                <DatePicker Width="200"></DatePicker>
+                <DatePicker x:Name="Date" SelectedDate="{Binding SelectedDateTime, UpdateSourceTrigger=PropertyChanged}" Width="200"></DatePicker>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <Label>Источник данных</Label>
-                <TextBox Width="200"></TextBox>
+                <TextBox x:Name="Source" Text="{Binding Module.InfoSource, UpdateSourceTrigger=PropertyChanged}" Width="200"></TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <Label>Ответственное лицо</Label>
-                <ComboBox x:Name="Employees" Width="200"></ComboBox>
+                <ComboBox x:Name="Employees" ItemsSource="{Binding EmployeesList}" SelectedItem="{Binding Module.ResponsiblePersonNavigation, UpdateSourceTrigger=PropertyChanged}" Width="200"></ComboBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label>Родительский модуль</Label>
+                <ComboBox x:Name="Modules" ItemsSource="{Binding ModulesList}" SelectedValuePath="Id" SelectedValue="{Binding Module.ParentModuleId, UpdateSourceTrigger=PropertyChanged}" Width="200"></ComboBox>
             </StackPanel>
         </StackPanel>
         <StackPanel Orientation="Horizontal">
             <StackPanel Orientation="Vertical" Margin="0,0,100,0">
                 <Label>Согласованты</Label>
                 <StackPanel Orientation="Horizontal">
-                    <ComboBox Width="80"></ComboBox>
-                    <Button Margin="5,0">+</Button>
+                    <ListView x:Name="EmplListView" ItemsSource="{Binding EmployeesList}" SelectionMode="Multiple">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Vertical">
+                                    <Label Content="{Binding Id}"></Label>
+                                    <WrapPanel>
+                                        <Label>ФИО: </Label>
+                                        <Label Content="{Binding FirstName}"></Label>
+                                        <Label Content="{Binding LastName}"></Label>
+                                        <Label Content="{Binding MiddleName}"></Label>
+                                    </WrapPanel>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
                 </StackPanel>
             </StackPanel>
             <StackPanel Orientation="Vertical">
                 <Label>Должности</Label>
                 <StackPanel Orientation="Horizontal">
-                    <ComboBox Width="80"></ComboBox>
-                    <Button Margin="5,0">+</Button>
+                    <ListView x:Name="PosListView" ItemsSource="{Binding Positions}" SelectionMode="Multiple">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Vertical">
+                                    <Label Content="{Binding Id}"></Label>
+                                    <WrapPanel>
+                                        <Label Content="{Binding Name}"></Label>
+                                    </WrapPanel>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
                 </StackPanel>
             </StackPanel>
         </StackPanel>

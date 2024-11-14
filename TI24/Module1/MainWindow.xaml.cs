@@ -37,7 +37,7 @@ namespace Module1
 
         private void ButtonBase_OnClickThree(object sender, RoutedEventArgs e)
         {
-            FrameElement.NavigationService.Navigate(new ModuleCreationPage());
+            FrameElement.NavigationService.Navigate(new Module3Page());
         }
     }
 }

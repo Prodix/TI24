@@ -10,11 +10,9 @@ C:\Users\prodix\RiderProjects\TI24\TI24\API\bin\Debug\net7.0\Microsoft.AspNetCor
 C:\Users\prodix\RiderProjects\TI24\TI24\API\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.dll
 C:\Users\prodix\RiderProjects\TI24\TI24\API\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Abstractions.dll
 C:\Users\prodix\RiderProjects\TI24\TI24\API\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Relational.dll
-C:\Users\prodix\RiderProjects\TI24\TI24\API\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Relational.Design.dll
 C:\Users\prodix\RiderProjects\TI24\TI24\API\bin\Debug\net7.0\Microsoft.OpenApi.dll
 C:\Users\prodix\RiderProjects\TI24\TI24\API\bin\Debug\net7.0\Npgsql.dll
 C:\Users\prodix\RiderProjects\TI24\TI24\API\bin\Debug\net7.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll
-C:\Users\prodix\RiderProjects\TI24\TI24\API\bin\Debug\net7.0\Npgsql.EntityFrameworkCore.PostgreSQL.Design.dll
 C:\Users\prodix\RiderProjects\TI24\TI24\API\bin\Debug\net7.0\Swashbuckle.AspNetCore.Swagger.dll
 C:\Users\prodix\RiderProjects\TI24\TI24\API\bin\Debug\net7.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\prodix\RiderProjects\TI24\TI24\API\bin\Debug\net7.0\Swashbuckle.AspNetCore.SwaggerUI.dll

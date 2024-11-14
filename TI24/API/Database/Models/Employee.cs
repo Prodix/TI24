@@ -38,4 +38,9 @@ public partial class Employee
     public virtual Position Position { get; set; } = null!;
 
     public virtual ICollection<TestingResult> TestingResults { get; set; } = new List<TestingResult>();
+
+    public override string ToString()
+    {
+        return $"{Id} | {FirstName} {LastName} {MiddleName}";
+    }
 }

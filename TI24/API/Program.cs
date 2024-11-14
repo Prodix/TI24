@@ -1,5 +1,7 @@
 using System.Text.Json.Serialization;
 using API.Database;
+using API.Database.Models;
+using Npgsql;
 
 namespace API;
 

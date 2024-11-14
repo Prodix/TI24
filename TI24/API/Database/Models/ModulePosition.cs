@@ -11,8 +11,6 @@ public partial class ModulePosition
 
     public int PositionId { get; set; }
     
-    public ModuleStatus Status { get; set; }
-
     public virtual Module Module { get; set; } = null!;
 
     public virtual Position Position { get; set; } = null!;

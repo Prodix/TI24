@@ -5,40 +5,56 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:local="clr-namespace:Module1"
       mc:Ignorable="d"
-      Title="Module2Page" Height="450" Width="800">
+      Title="Module2Page">
     <StackPanel Orientation="Vertical" Margin="5">
         <StackPanel Orientation="Horizontal">
             <StackPanel Margin="5,0" Orientation="Vertical">
                 <Label>Сотрудник</Label>
-                <ComboBox></ComboBox>
+                <ComboBox x:Name="Employees" SelectedValuePath="Id"></ComboBox>
             </StackPanel>
             <StackPanel Margin="5,0" Orientation="Vertical">
                 <Label>Отдел</Label>
-                <ComboBox></ComboBox>
+                <ComboBox x:Name="Departments" SelectedValuePath="Id"></ComboBox>
             </StackPanel>
             <StackPanel Margin="5,0" Orientation="Vertical">
                 <Label>Должность</Label>
-                <ComboBox></ComboBox>
+                <ComboBox x:Name="Positions" SelectedValuePath="Id"></ComboBox>
             </StackPanel>
         </StackPanel>
         <Label>Поиск</Label>
-        <TextBox Width="300" HorizontalAlignment="Left"></TextBox>
-        <ListView x:Name="ModulesElement" ItemsSource="{Binding Modules}">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel>
-                        <StackPanel Orientation="Horizontal">
-                            <Label Content="{Binding Info.Name}" Width="200" Margin="5,0"></Label>
-                            <CheckBox></CheckBox>
+        <TextBox TextChanged="TextBoxBase_OnTextChanged" KeyDown="UIElement_OnKeyDown" Width="300" HorizontalAlignment="Left"></TextBox>
+        <ScrollViewer>
+            
+            <ListView x:Name="ModulesElement" Height="400" ScrollViewer.CanContentScroll="False" ItemsSource="{Binding Modules}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <Label Content="{Binding Info.Name}" Width="200" Margin="5,0"></Label>
+                                <CheckBox Checked="ToggleButton_OnChecked" Unchecked="ToggleButton_OnUnchecked"></CheckBox>
+                            </StackPanel>
+                            <ScrollViewer>
+                                <ListView SelectionChanged="Selector_OnSelectionChanged" Height="200" ScrollViewer.CanContentScroll="False" ItemsSource="{Binding Mentors}" SelectionMode="Multiple">
+                                    <ListView.ItemTemplate>
+                                        <DataTemplate>
+                                            <StackPanel Orientation="Vertical">
+                                                <Label Content="{Binding Id}"></Label>
+                                                <WrapPanel>
+                                                    <Label>ФИО: </Label>
+                                                    <Label Content="{Binding FirstName}"></Label>
+                                                    <Label Content="{Binding LastName}"></Label>
+                                                    <Label Content="{Binding MiddleName}"></Label>
+                                                </WrapPanel>
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </ListView.ItemTemplate>
+                                </ListView>
+                            </ScrollViewer>
                         </StackPanel>
-                        <StackPanel Orientation="Horizontal">
-                            <ComboBox Width="80"></ComboBox>
-                            <Button Margin="5,0">+</Button>
-                        </StackPanel>
-                    </StackPanel>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </ScrollViewer>
         <Button>Сформировать программу</Button>
     </StackPanel>
 </Page>
